@@ -3,14 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>JesusGoku NewTab</title>
-    <link rel="stylesheet" href="app.css">
+    <title>New Tab</title>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="build/main.css">
 </head>
 <body>
-<h1>¡Buen día <span id="full_name"></span>!</h1>
+    <div id="center">
+        <h1 id="hour"></h1>
+        <div id="greeting">¡Buen día <span id="full_name"></span>!</div>
+    </div>
+
+    <div id="bottom">
+        <blockquote id="quote">
+            <div class="quote"></div>
+            <div class="author"></div>
+        </blockquote>
+    </div>
 
 <!-- javascript -->
-<script src="jquery-1.12.4.min.js"></script>
-<script src="app.js"></script>
+<script src="build/commons.js"></script>
+<script src="build/main.js"></script>
 </body>
 </html>
