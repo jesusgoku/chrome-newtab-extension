@@ -1,0 +1,40 @@
+{
+  "name": "newtab",
+  "version": "1.0.0",
+  "description": "chrome extesion replace new tab",
+  "main": "build/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesusgoku/chrome-newtab-extension.git"
+  },
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "Jesus Urrutia <jesus.urrutia@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jesusgoku/chrome-newtab-extension/issues"
+  },
+  "homepage": "https://github.com/jesusgoku/chrome-newtab-extension#readme",
+  "private": true,
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.9.1",
+    "eslint-loader": "^1.6.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "jquery": "^1.12.4",
+    "lodash": "^4.16.6",
+    "moment": "^2.16.0"
+  }
+}
