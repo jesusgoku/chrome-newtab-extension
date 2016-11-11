@@ -3,7 +3,19 @@
     "name": "JesusGoku NewTab",
     "description": "Replace new tab when image download from ...",
     "version": "1.0",
+    "icons": {
+        "16": "images/folder-100-green.png",
+        "48": "images/folder-100-green.png",
+        "128": "images/folder-100-green.png"
+    },
+    "browser_action": {
+        "default_icon": "images/folder-100-green.png"
+    },
     "chrome_url_overrides": {
         "newtab": "newtab.html"
-    }
+    },
+    "permissions": [
+        "geolocation"
+    ],
+    "author": "Jesús Urrutia"
 }
