@@ -32,6 +32,48 @@ var Storage = function () {};
         _storage.clear();
         return Storage;
     }
+
+    // -- Expire API
+    Storage.setExpireItem = function (prop, value, expire) {
+        var now = new Date();
+
+        _storage.setItem(prop, JSON.stringify({
+            data: value,
+            timestamp: Math.floor(now.getTime() / 1000),
+            expire: expire
+        }));
+
+        return Storage;
+    }
+
+    Storage.getExpireItem = function (prop) {
+        var _this = this;
+
+        if (!_this.hasExpireItem(prop)) {
+            return;
+        }
+
+        var item = JSON.parse(_storage.getItem(prop));
+
+        return item.data;
+    }
+
+    Storage.hasExpireItem = function (prop) {
+        var item = _storage.getItem(prop);
+
+        if (null === item) {
+            return false;
+        }
+
+        item = JSON.parse(item);
+        var now = new Date();
+
+        if ((Math.floor(now.getTime() / 1000) - item.timestamp) > item.expire) {
+            return false;
+        }
+
+        return true;
+    }
 }).apply(Storage.prototype);
 
 module.exports = Storage;

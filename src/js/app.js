@@ -2,21 +2,23 @@
 
 var getRandomInt = require('./util.js').getRandomInt;
 var $ = require('jquery');
+var _extend = require('lodash/extend');
 
 
 
 function App(storage, modules, options) {
     this.storage = storage;
     this.modules = modules;
-    this.init(options);
+
+    this.setConfig(options);
 };
 
 (function () {
     var _this = this;
-    _this.init = function (options) {
+    _this.setConfig = function (options) {
         var _this = this;
 
-        _this.config = $.extend({
+        _this.config = _extend({
             askFullNameQuestion: '¡Hola! ... ¿Como debería llamarte? ...',
             domFullName: '#full_name',
             propFullName: 'full_name',
@@ -41,20 +43,10 @@ function App(storage, modules, options) {
             _this.setRandomBackgroundImage();
         }
 
-        if (!_this.storage.hasItem(_this.config.propFullName)) {
-            _this.storage.setItem(_this.config.propFullName, _this.askFullName());
-        }
-
-        $(_this.config.domFullName).text(_this.storage.getItem(_this.config.propFullName));
-
         $('body')
             .on(_this.config.eventBackgroundImageUpdate, _this.changeBackgroundImage.bind(_this))
             .trigger(_this.config.eventBackgroundImageUpdate)
         ;
-    }
-
-    _this.askFullName = function () {
-        return prompt(_this.config.askFullNameQuestion);
     }
 
     _this.setRandomBackgroundImage = function () {
